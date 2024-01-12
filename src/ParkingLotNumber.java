@@ -11,31 +11,31 @@ public class ParkingLotNumber extends JLabel {
                 this.setText(Integer.toString(number + 1));
                 totalNumbersLength = (int) (pWidth * Constants.TOP_PARKING_PERCENTAGE);
                 numberLength = totalNumbersLength / Constants.TOP_PARKING_LOTS_NUMBER;
-                this.setLocation(numberLength * (number) + (int) (pWidth * Constants.TOP_PARKING_MARGIN_PERCENTAGE) + (numberLength / 2), Constants.LOT_BORDER_LENGTH);
+                this.setLocation(numberLength * (number) + (int) (pWidth * Constants.TOP_PARKING_MARGIN_PERCENTAGE) + (numberLength / 2), Constants.LOT_BORDER_LENGTH );
                 break;
             case "right":
-                this.setText(Integer.toString(number + 1 + 8));
+                this.setText(Integer.toString(number + 1));
                 totalNumbersLength = (int) (pHeight * Constants.LEFT_RIGHT_PARKING_PERCENTAGE);
                 numberLength = totalNumbersLength / Constants.PARKING_LOTS_NUMBER;
-                this.setLocation(pWidth - Constants.LOT_BORDER_LENGTH, numberLength * (number) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
+                this.setLocation(pWidth - Constants.LOT_BORDER_LENGTH - 20 , numberLength * (number - 8) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
                 break;
             case "left":
-                this.setText(Integer.toString(number + 1 + 13));
+                this.setText(Integer.toString(number + 1));
                 totalNumbersLength = (int) (pHeight * Constants.LEFT_RIGHT_PARKING_PERCENTAGE);
                 numberLength = totalNumbersLength / Constants.PARKING_LOTS_NUMBER;
-                this.setLocation(Constants.LOT_BORDER_LENGTH, numberLength * (number) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
+                this.setLocation(Constants.LOT_BORDER_LENGTH, numberLength * (number - 13) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
                 break;
             case "middleright":
-                this.setText(Integer.toString(number + 1 + 18));
+                this.setText(Integer.toString(number + 1));
                 totalNumbersLength = (int) (pHeight * Constants.LEFT_RIGHT_PARKING_PERCENTAGE);
                 numberLength = totalNumbersLength / Constants.PARKING_LOTS_NUMBER;
-                this.setLocation((pWidth / 2) + Constants.LOT_BORDER_LENGTH, numberLength * (number) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
+                this.setLocation((pWidth / 2) + Constants.LOT_BORDER_LENGTH , numberLength * (number - 18) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
                 break;
             case "middleleft":
-                this.setText(Integer.toString(number + 1 + 23));
+                this.setText(Integer.toString(number + 1));
                 totalNumbersLength = (int) (pHeight * Constants.LEFT_RIGHT_PARKING_PERCENTAGE);
                 numberLength = totalNumbersLength / Constants.PARKING_LOTS_NUMBER;
-                this.setLocation((pWidth / 2) - Constants.LOT_BORDER_LENGTH, numberLength * (number) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
+                this.setLocation((pWidth / 2) - Constants.LOT_BORDER_LENGTH - 20 , numberLength * (number - 23) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN) + (numberLength / 2));
                 break;
         }
     }

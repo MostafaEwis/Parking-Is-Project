@@ -2,11 +2,21 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ParkingLotBorder extends JPanel {
+    private int index,pWidth,pHeight;
+    private String placement;
 
     ParkingLotBorder(int pWidth, int pHeight, int index, String placement) {
-        int totalLotsLength, lotLength;
+        this.index = index;
+        this.pHeight = pHeight;
+        this.pWidth = pWidth;
+        this.placement = placement;
+        drawParkingLotBorder();
         this.setOpaque(false);
         this.setBackground(Color.black);
+
+    }
+    private void drawParkingLotBorder(){
+        int totalLotsLength, lotLength;
         switch (placement.toLowerCase()) {
             case "top":
                 totalLotsLength = (int) (pWidth * Constants.TOP_PARKING_PERCENTAGE);
@@ -19,7 +29,7 @@ public class ParkingLotBorder extends JPanel {
                 lotLength = totalLotsLength / Constants.PARKING_LOTS_NUMBER;
 
                 this.setSize(Constants.LOT_BORDER_LENGTH + 5, Constants.LOT_BORDER_BROADNESS);
-                this.setLocation(pWidth - Constants.LOT_BORDER_LENGTH - 5, lotLength * (index) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN));
+                this.setLocation(pWidth - Constants.LOT_BORDER_LENGTH - 15, lotLength * (index) + (int) (pHeight * Constants.LEFT_RIGHT_PARKING_MARGIN));
                 break;
             case "left":
                 totalLotsLength = (int) (pHeight * Constants.LEFT_RIGHT_PARKING_PERCENTAGE);
@@ -43,7 +53,6 @@ public class ParkingLotBorder extends JPanel {
                 break;
         }
     }
-
     @Override
     protected void paintComponent(Graphics g) {
         Dimension arcs = new Dimension(15, 15);
@@ -51,7 +60,6 @@ public class ParkingLotBorder extends JPanel {
         int height = getHeight();
         Graphics2D graphics = (Graphics2D) g;
         graphics.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
 
         //Draws the rounded opaque panel with borders.
         graphics.setColor(getBackground());
